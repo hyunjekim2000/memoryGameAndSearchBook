@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  padding: 10px;
+  margin: 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px;
+}
+
+.wishlist {
+  position: sticky;
+  max-width: 300px;
+  top: 15px;
+  align-self: flex-start;
+  margin: 15px;
+  min-width: 300px;
+}
+
+.wishbook {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.wishbook button {
+  min-width: 30px;
+  height: 30px;
+  padding: 5px;
+}
+
+form {
+  margin: 15px;
+}

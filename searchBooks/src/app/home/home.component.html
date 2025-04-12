@@ -1,0 +1,50 @@
+<form [formGroup]="form">
+  <label for="query">Search Books: </label>
+  <input id="query" formControlName="query" />
+</form>
+
+<div class="container">
+  <div class="list-container">
+    @if (bookList.length == 0) {
+    <p style="margin: 15px">Search for a book...</p>
+    } @for (book of bookList; track book.id) {
+    <div class="card" (click)="addBook(book)">
+      <div>
+        @if (book.volumeInfo.imageLinks?.thumbnail) {
+        <img [src]="book.volumeInfo.imageLinks.thumbnail" />
+        } @else {
+        <p>Image Unavailable</p>
+        }
+      </div>
+      <div>
+        @if (book.volumeInfo.title) {
+        <p><strong>Title: </strong>{{ book.volumeInfo.title }}</p>
+        } @if (book.volumeInfo.publisher) {
+        <p><strong>Publisher:</strong> {{ book.volumeInfo.publisher }}</p>
+        } @if (book.volumeInfo.publishedDate) {
+        <p>
+          <strong>Published Date:</strong> {{ book.volumeInfo.publishedDate }}
+        </p>
+        } @if (book.volumeInfo.description) {
+
+        <p>
+          <strong>Description:</strong
+          >{{ book.volumeInfo.description | truncate }}
+        </p>
+        }
+      </div>
+    </div>
+    }
+  </div>
+
+  <div class="wishlist">
+    @for (book of wishList; track book.id) {
+    <ul class="wishbook">
+      <li>
+        {{ book.volumeInfo.title }}
+      </li>
+      <button (click)="removeBook(book)">X</button>
+    </ul>
+    }
+  </div>
+</div>
