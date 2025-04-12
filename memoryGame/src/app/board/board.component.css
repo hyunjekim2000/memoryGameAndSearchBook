@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.board {
+  display: grid;
+  gap: 12px;
+}
+
+.normal-mode {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.hell-mode {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.card {
+  font-size: 4rem;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.covered,
+.peeking {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background-color: lightslategrey;
+}
+
+.peeking {
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.emoji {
+  position: relative;
+  z-index: 2;
+}
+
+button {
+  margin: 15px;
+  padding: 15px;
+}

@@ -1,0 +1,46 @@
+<div class="container">
+  @if (hellMode) {
+  <div class="board hell-mode">
+    @for (card of cards; track card.id) {
+    <div class="card">
+      @if (getCardState(card) == 'CLEARED') {
+      <span class="emoji">{{ card.emoji }}</span>
+      } @if (getCardState(card) == 'PEEKING') {
+      <span class="emoji">{{ card.emoji }}</span>
+      <div class="peeking"></div>
+      } @if (getCardState(card) == 'COVERED') {
+      <div class="covered" (click)="peek(card)"></div>
+      }
+    </div>
+    }
+  </div>
+  } @else {
+  <div class="board normal-mode">
+    @for (card of cards; track card.id) {
+    <div class="card">
+      @if (getCardState(card) == 'CLEARED') {
+      <span class="emoji">{{ card.emoji }}</span>
+      } @if (getCardState(card) == 'PEEKING') {
+      <span class="emoji">{{ card.emoji }}</span>
+      <div class="peeking"></div>
+      } @if (getCardState(card) == 'COVERED') {
+      <div class="covered" (click)="peek(card)"></div>
+      }
+    </div>
+    }
+  </div>
+
+  }
+  <div class="buttons">
+    @if (win) {
+
+    <button (click)="init()">Play Again</button>
+    } @else {
+    <button (click)="init()">Reset Board</button>
+    } @if (hellMode) {
+    <button (click)="toggleHellMode()">Easy Mode</button>
+    } @else {
+    <button (click)="toggleHellMode()">Challenge Mode</button>
+    }
+  </div>
+</div>
